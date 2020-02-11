@@ -16,7 +16,7 @@ export default function Routes() {
         <BrowserRouter>
             <Navbar/>
             <Switch>
-            <PrivateRoute path="/" exact component={Dashboard}/>
+            <Route path="/" exact component={Dashboard}/>
             <PrivateRoute path="/meetingRooms/:id" exact component={BookingConfirm}/>
             <Route path="/login" component={Login}/>
             <PrivateRoute path="/orders" component={BookedHistory}/>
