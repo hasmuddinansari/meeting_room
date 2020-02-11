@@ -3,12 +3,13 @@ import React from "react";
 import { connect } from "react-redux";
 
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, Auth, ...rest }) => {
+  console.log("private Route", Auth.Auth)
   return (
     <Route
       {...rest}
       render={props => {
-        if (props.Auth.isAuthenticate) {
+        if (Auth.Auth.authenticated==true) {
           return <Component {...props} />;
         } else {
           return (

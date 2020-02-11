@@ -14,11 +14,41 @@ export const sortBy = ( key, sortType)=>{
     }
 }
 
+export const login = (authenticated,token)=>{
+    return {
+        type:"LOGIN",
+        authenticated:authenticated,
+        token:token
+    }
+}
+
+export const logout =(authenticated, token)=>{
+    return {
+        type:"LOGOUT",
+        authenticated:authenticated,
+        token:token
+    }
+}
+
+export const addToBook = (user)=>{
+    return {
+        type:"BOOK",
+        user:user
+    }
+}
+export const updateAvailablity = (id)=>{
+    return {
+        type:"UPDATA_AVAILABLE",
+        id:id
+    }
+}
+
 
 export const fetch_data=()=>{
     return dispatch=>{
         axios.get("./rooms.json")
         .then(res=>{
+            localStorage.setItem("rooms", JSON.stringify(res.data))
             dispatch(fetchData(res.data))
         })
         .catch(error=>{

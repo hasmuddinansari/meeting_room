@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import axios from "axios"
+import swal from "sweetalert"
+import {Link} from "react-router-dom"
+import {connect} from "react-redux"
+import {login} from "../Redux/Action"
 
 
-export class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +37,18 @@ export class Login extends Component {
        
     }
     axios(config).then(res=>{
-      console.log(res.stat)
+      const response = res.data
+      if(!response.error){
+        swal("Login successfull", "", "success")
+        this.props.login(true, response.token)
+        this.props.history.push("/")
+      }
+      else{
+        alert("username or password is wrong")
+      }
+    })
+    .catch(err=>{
+      alert("username or password is wrong")
     })
     
   };
@@ -68,10 +83,16 @@ export class Login extends Component {
           >
             Login
           </Button>
+          <p className="mx-1">Not have an Account ? <Link to="/register">Click Here to Register</Link></p>
         </form>
       </div>
     );
   }
 }
+const mapDispatchToProps = dispatch =>{
+  return {
+    login:(authenticated,token)=>dispatch(login(authenticated,token))
+  }
+}
 
-export default Login;
+export default connect(null, mapDispatchToProps)(Login);

@@ -13,7 +13,7 @@ function Dashboard(props) {
     const [pageNumber, setPageNumber] = useState(1)
     const current = pageNumber * 5
     const prev = current - 5
-    const paginationData = props.state.rooms.slice(prev, current)
+    const paginationData = props.state.rooms.rooms.slice(prev, current)
     const [filteredRooms, setFilteredRooms] = useState([])
 
     //paginate is working to page btn 
@@ -85,7 +85,7 @@ function Dashboard(props) {
 const mapStateToProps=(state)=>{
     return {
         state:state,
-        rooms:state.rooms
+        rooms:state.rooms.rooms
     }
 }
 const mapDispatchToProps =(dispatch)=>{

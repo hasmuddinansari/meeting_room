@@ -1,8 +1,14 @@
-import {roomsReducer} from "./Reducer"
-import {createStore, applyMiddleware} from "redux"
+import {roomsReducer, AuthReducer, BookingReducer} from "./Reducer"
+import {createStore, applyMiddleware, combineReducers} from "redux"
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from "redux-thunk"   
 
-export const store = createStore(roomsReducer, composeWithDevTools(applyMiddleware(thunk)))
+const rootReducer = combineReducers({
+    rooms:roomsReducer,
+    Auth:AuthReducer,
+    Booked:BookingReducer
+})
+
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store

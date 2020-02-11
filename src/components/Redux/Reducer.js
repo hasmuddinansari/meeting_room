@@ -6,8 +6,13 @@ export const roomsReducer = (state=initialState, action)=>{
         switch(action.type){
             case "FETCH_DATA":
                 return {
+                    ...state,
                     rooms:action.payload
                 }
+            case "UPDATA_AVAILABLE":
+                
+
+
             case "SORTING":
                 const sortedRooms = state.rooms
                 if(action.sortType=="asc"){
@@ -18,6 +23,7 @@ export const roomsReducer = (state=initialState, action)=>{
                     })
                     
                     return {
+                        ...state,
                         rooms:sortedRooms
                     }
                 }
@@ -28,6 +34,7 @@ export const roomsReducer = (state=initialState, action)=>{
                         return 0
                     })
                     return {
+                        ...state,
                         rooms:sortedRoomDesc
                     }
 
@@ -36,3 +43,36 @@ export const roomsReducer = (state=initialState, action)=>{
         }
 }
 
+const initialStateOfAuth = {
+    Auth:{
+        authenticated:true,
+        token:"",
+    }
+}
+
+export const AuthReducer =(state=initialStateOfAuth,action)=>{
+    switch(action.type){
+        case "LOGIN":
+            return {
+                Auth:{authenticated:action.authenticated, token:action.token}
+            }
+        case "LOGOUT":
+            return {
+                Auth:{authenticated:action.authenticated, token:action.token}
+            }
+        default : return state
+    }
+}
+const initialStateOfBooking={
+    booked:[]
+}
+
+export const BookingReducer = (state=initialStateOfBooking, action)=>{
+    switch(action.type){
+        case "BOOK":
+            return {
+                booked:[...state.booked, action.user]
+            }
+        default:return state
+    }
+}
