@@ -41,7 +41,7 @@ function BookingConfirm(props) {
           props.addToBook(booked)
           props.updateAvailablity(room.id)
         swal("Booking Completed", "","success")
-        props.history.push(`/meetingRooms/${room.id}/confirm`)
+        props.history.push(`/meetingRooms/${room.id}/confirm?id=${room.id}`)
         }
 
     }
