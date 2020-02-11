@@ -4,7 +4,7 @@ import React from 'react'
 function BookedHistory(props) {
     const booked = JSON.parse(localStorage.getItem("orders"))
     console.log("booked", booked)
-    if(booked.length!==0){
+    if(booked.length!==0 || booked!==null){
     return (
         <table className="table">
             <thead className="bg-light">
