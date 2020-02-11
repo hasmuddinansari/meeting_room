@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import {HashRouter, Route, Switch} from "react-router-dom"
 import Navbar from "../components/common/Home/Navbar"
 import Dashboard from "../components/common/Home/Dashboard"
 import BookingConfirm from "../components/common/Book/BookingConfirm"
@@ -13,7 +13,7 @@ import Confirm from "../components/common/Book/Confirm"
 
 export default function Routes() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Navbar/>
             <Switch>
             <PrivateRoute path="/" exact component={Dashboard}/>
@@ -24,6 +24,6 @@ export default function Routes() {
             <PrivateRoute path="/meetingRooms/:id/confirm" component={Confirm}/>
             <Route component={NotFound}/>
             </Switch>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
