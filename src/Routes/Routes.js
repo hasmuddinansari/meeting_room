@@ -8,6 +8,7 @@ import Login from "../components/auth/Login"
 import Register from "../components/auth/Register"
 import PrivateRoute from "../components/auth/PrivateRoute"
 import BookedHistory from "../components/common/Book/BookedHistory"
+import Confirm from "../components/common/Book/Confirm"
 
 
 export default function Routes() {
@@ -20,6 +21,7 @@ export default function Routes() {
             <Route path="/login" component={Login}/>
             <Route path="/orders" component={BookedHistory}/>
             <Route path="/register" component={Register}/>
+            <Route path="/meetingRooms/:id/confirm" component={Confirm}/>
             <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

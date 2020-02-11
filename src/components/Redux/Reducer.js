@@ -79,6 +79,12 @@ const initialStateOfBooking={
 export const BookingReducer = (state=initialStateOfBooking, action)=>{
     switch(action.type){
         case "BOOK":
+            let orders = JSON.parse(localStorage.getItem("orders"))
+            if(orders==null){
+                orders=[]
+            }
+            let updatedOrders = [...orders, action.user]
+            localStorage.setItem("orders", JSON.stringify(updatedOrders))
             return {
                 booked:[...state.booked, action.user]
             }

@@ -5,7 +5,6 @@ import {connect} from "react-redux"
 
 
 function BookingConfirm(props) {
-    console.log(props.match)
     const roomsData = JSON.parse(localStorage.getItem("rooms"))
     if(roomsData==null){
         roomsData=[]
@@ -42,6 +41,7 @@ function BookingConfirm(props) {
           props.addToBook(booked)
           props.updateAvailablity(room.id)
         swal("Booking Completed", "","success")
+        props.history.push(`/meetingRooms/${room.id}/confirm`)
         }
 
     }
