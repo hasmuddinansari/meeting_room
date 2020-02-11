@@ -16,12 +16,12 @@ export default function Routes() {
         <BrowserRouter>
             <Navbar/>
             <Switch>
-            <Route path="/" exact component={Dashboard}/>
+            <PrivateRoute path="/" exact component={Dashboard}/>
             <PrivateRoute path="/meetingRooms/:id" exact component={BookingConfirm}/>
             <Route path="/login" component={Login}/>
-            <Route path="/orders" component={BookedHistory}/>
+            <PrivateRoute path="/orders" component={BookedHistory}/>
             <Route path="/register" component={Register}/>
-            <Route path="/meetingRooms/:id/confirm" component={Confirm}/>
+            <PrivateRoute path="/meetingRooms/:id/confirm" component={Confirm}/>
             <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

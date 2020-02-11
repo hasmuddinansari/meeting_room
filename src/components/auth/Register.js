@@ -51,6 +51,7 @@ export class Register extends Component {
             const message = res.data.message
             if(message=="Registration Success"){
               swal("Registration Success", "", "success")
+              this.reset()
             }
             else{
               swal(message, "", "warning")
@@ -58,6 +59,20 @@ export class Register extends Component {
           })
       }
   };
+  reset = ()=>{
+    this.setState({
+      form:{
+        ...this.state.form,
+        name: "",
+        email: "",
+        password: "",
+        username: "",
+        mobile: "",
+        description:""
+
+      }
+    })
+  }
   render() {
     return (
       <div className="container d-flex justify-content-center align-items-center p-1">
@@ -69,6 +84,7 @@ export class Register extends Component {
             onChange={this.handleChange}
             name="name"
             label="Name"
+            value={this.state.form.name}
             variant="outlined"
           />
           <TextField
@@ -77,6 +93,7 @@ export class Register extends Component {
             onChange={this.handleChange}
             name="email"
             label="Email"
+            value={this.state.form.email}
             variant="outlined"
           />
           <TextField
@@ -85,6 +102,7 @@ export class Register extends Component {
             onChange={this.handleChange}
             name="password"
             label="password"
+            value={this.state.form.password}
             variant="outlined"
           />
           <TextField
@@ -93,6 +111,7 @@ export class Register extends Component {
             onChange={this.handleChange}
             name="username"
             label="Username"
+            value={this.state.form.username}
             variant="outlined"
           />
           <TextField
@@ -100,6 +119,7 @@ export class Register extends Component {
             className=" m-2"
             onChange={this.handleChange}
             name="mobile"
+            value={this.state.form.mobile}
             label="Mobile Number"
             variant="outlined"
           />
@@ -109,6 +129,7 @@ export class Register extends Component {
             onChange={this.handleChange}
             name="description"
             label="Description"
+            value={this.state.form.description}
             variant="outlined"
           />
           {/* description */}

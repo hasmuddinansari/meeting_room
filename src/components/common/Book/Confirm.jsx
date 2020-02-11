@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Redirect, useLocation} from "react-router-dom"
+import {Redirect} from "react-router-dom"
 
 const Confirm = (props) => {
   const [time, setTime] = useState(5000);
@@ -21,8 +21,13 @@ const Confirm = (props) => {
   }
   else{
     return (
-        <div>
-         {show}
+        <div className="container p-5 row justify-content-center">
+          <div className="col-6">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQZlhd6vbs255SuR7ToQ5a9cOIZpHKbK0ETXmNKHPqmc09P2JMi" alt=""/>
+          <h2>Booking Success !!</h2>
+          <h5>Redirect to home page in: {show}</h5>
+          </div>
+          
         </div>
       );
 
