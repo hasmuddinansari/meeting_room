@@ -10,8 +10,17 @@ export const roomsReducer = (state=initialState, action)=>{
                     rooms:action.payload
                 }
             case "UPDATA_AVAILABLE":
-                
+                let oldData = state.rooms.find(room=>{
+                    return room.id == action.id
+                })
+                let allRooms = state.rooms.filter(room=>{
+                    return room.id != action.id
+                })
 
+                return {
+                    ...state,
+                    rooms:[...allRooms, {...oldData, available:false}]
+                }
 
             case "SORTING":
                 const sortedRooms = state.rooms

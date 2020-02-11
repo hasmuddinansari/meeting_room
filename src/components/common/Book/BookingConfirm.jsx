@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import swal from "sweetalert"
-import {addToBook} from "../../Redux/Action"
+import {addToBook, updateAvailablity} from "../../Redux/Action"
 import {connect} from "react-redux"
 
 
@@ -40,6 +40,7 @@ function BookingConfirm(props) {
 
           //booking done by redux axion
           props.addToBook(booked)
+          props.updateAvailablity(room.id)
         swal("Booking Completed", "","success")
         }
 
@@ -72,7 +73,8 @@ const mapStateToProps=state=>{
 }
 const mapDispatchToProps=dispatch=>{
     return {
-        addToBook:user=>dispatch(addToBook(user))
+        addToBook:user=>dispatch(addToBook(user)),
+        updateAvailablity:id=>dispatch(updateAvailablity(id))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(BookingConfirm)

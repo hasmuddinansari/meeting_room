@@ -39,7 +39,7 @@ export const addToBook = (user)=>{
 export const updateAvailablity = (id)=>{
     return {
         type:"UPDATA_AVAILABLE",
-        id:id
+        id:id,
     }
 }
 
