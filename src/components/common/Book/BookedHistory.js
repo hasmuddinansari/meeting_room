@@ -13,7 +13,7 @@ function BookedHistory(props) {
     else{
         return (
             <table className="table">
-       1     <thead className="bg-light">
+           <thead className="bg-light">
             <tr>
                 <td>Meeting Room</td>
                 <td>Price</td>
