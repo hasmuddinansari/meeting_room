@@ -1,10 +1,11 @@
 import React from 'react'
+import {connect} from "react-redux"
 
 
 function BookedHistory(props) {
     const booked = JSON.parse(localStorage.getItem("orders"))
     console.log("booked", booked)
-    if(booked.length==0 || booked==null){
+    if(props.booked.length==0 || props.booked==null){
     return (
         <h4>No meeting Rooms are booked</h4>
     )
@@ -12,7 +13,7 @@ function BookedHistory(props) {
     else{
         return (
             <table className="table">
-        <thead className="bg-light">
+       1     <thead className="bg-light">
             <tr>
                 <td>Meeting Room</td>
                 <td>Price</td>
@@ -36,5 +37,9 @@ function BookedHistory(props) {
         )
     }
 }
-
-export default BookedHistory
+const mapStateToProps=state=>{
+    return {
+        booked:state.Booked.booked
+    }
+}
+export default connect(mapStateToProps)(BookedHistory)
