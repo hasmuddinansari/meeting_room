@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 export default function RoomsCard({room}) {
     return (
-        <div className="col-lg-3 m-2 col-md-4 col-12 text-center hover-me p-2">
+        <div className="col-lg-3 m-2 col-md-4 col-12 text-center shadow hover-me p-2">
            <div className="card">
                <div className="card-body">
                <img src="./meetingroom2.jpeg" className="img-fluid" alt="img"/>

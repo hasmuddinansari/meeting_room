@@ -21,6 +21,12 @@ export const login = (authenticated,token)=>{
         token:token
     }
 }
+export const fetch_duplicate =(data)=>{
+    return {
+        type:"FILTERED",
+        data:data
+    }
+}
 
 export const logout =(authenticated, token)=>{
     return {
@@ -49,10 +55,16 @@ export const fetch_data=()=>{
         axios.get("./rooms.json")
         .then(res=>{
             localStorage.setItem("rooms", JSON.stringify(res.data))
-            dispatch(fetchData(res.data))
+            dispatch(fetch_duplicate(res.data))
         })
         .catch(error=>{
             console.log(error)
         })
+    }
+}
+
+export const fetch_filter=(data)=>{
+    return dispatch=>{
+       dispatch(fetchData(data))
     }
 }

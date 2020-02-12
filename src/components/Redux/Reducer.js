@@ -1,5 +1,6 @@
 const initialState = {
-    rooms:[]
+    rooms:[],
+    duplicate:[]
 }
 
 export const roomsReducer = (state=initialState, action)=>{
@@ -8,6 +9,11 @@ export const roomsReducer = (state=initialState, action)=>{
                 return {
                     ...state,
                     rooms:action.payload
+                }
+            case "FILTERED":
+                return {
+                    ...state,
+                    duplicate:action.data
                 }
             case "UPDATA_AVAILABLE":
                 let oldData = state.rooms.find(room=>{
@@ -54,7 +60,7 @@ export const roomsReducer = (state=initialState, action)=>{
 
 const initialStateOfAuth = {
     Auth:{
-        authenticated:false,
+        authenticated:true,
         token:"",
     }
 }
