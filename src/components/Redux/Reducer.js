@@ -16,16 +16,16 @@ export const roomsReducer = (state=initialState, action)=>{
                     duplicate:action.data
                 }
             case "UPDATA_AVAILABLE":
-                let oldData = state.rooms.find(room=>{
+                let oldData = state.duplicate.find(room=>{
                     return room.id == action.id
                 })
-                let allRooms = state.rooms.filter(room=>{
+                let allRooms = state.duplicate.filter(room=>{
                     return room.id != action.id
                 })
 
                 return {
                     ...state,
-                    rooms:[...allRooms, {...oldData, available:false}]
+                    duplicate:[...allRooms, {...oldData, available:false}]
                 }
 
             case "SORTING":

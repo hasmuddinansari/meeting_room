@@ -7,13 +7,12 @@ export default function PaginateBtn({paginate, total_btn}) {
     }
     return (
         <div className="row">
-            <h4>Jump On: </h4>
+            <h4>Jump On :</h4>
             {pag_btn.map(num=>{
-                return <button onClick={()=>paginate(num)} className="mx-1 btn btn-outline-dark">
+                return <button key={num} onClick={()=>paginate(num)} className="mx-1 btn btn-outline-dark">
                         {num}
                      </button>
             })}
-            
         </div>
     )
 }

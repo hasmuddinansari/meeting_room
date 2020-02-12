@@ -7,27 +7,27 @@ function Navbar(props) {
     const {Auth} = props
     if(Auth.authenticated){
         return (
-             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+             <nav className="navbar navbar-expand-lg navbar-light bg-dark">
                  <a className='nav-brand'>
                  <Link to="/" className="h3 text-white ">
                     Home
                 </Link>
                  </a>
                 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                     <span className="navbar-toggler-icon"></span>
                 </button>
-    <div class="collapse navbar-collapse row justify-content-center" id="navbarSupportedContent">
-     <ul class="navbar-nav row justify-content-end  col-12">
-      <li class="nav-item active mr-5 ml-2 my-2">
+    <div className="collapse navbar-collapse row justify-content-center" id="navbarSupportedContent">
+     <ul className="navbar-nav row justify-content-end  col-12">
+      <li className="nav-item active mr-5 ml-2 my-2">
       <a className='nav-item '>
         <Link to="/orders" className="h3  text-white">Orders</Link>
         </a>
       </li>
-      <li class="nav-item mr-5 ml-2">
-             <p className="text-white">Token : <span className="btn btn-success nav-link">{Auth.token}</span> </p>
+      <li className="nav-item mr-5 ml-2">
+             <p className="text-white">Token : <span className="btn sm-text btn-success nav-link">{Auth.token}</span> </p>
       </li>
-       <li class="nav-item mr-3 ml-2 my-2">
+       <li className="nav-item mr-3 ml-2 my-2">
         
              <button onClick={()=>props.logout(false, "")}  className="btn btn-danger nav-link">
                     Logout

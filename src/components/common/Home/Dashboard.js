@@ -80,7 +80,7 @@ function Dashboard(props) {
     return (
         <div className="container">
             
-             <div className="row  bg-light p-3 shadow justify-content-between">
+             <div className="row  bg-light p-3 shadow-sm justify-content-between">
             <h1>Book your meeting Room</h1>
             <div className="col-6">
                 {props.rooms.length==0?null:
@@ -93,7 +93,7 @@ function Dashboard(props) {
                     <option value="all">All</option>
                     
                     {num_ar.map(num=>{
-                    return <option value={num}>{num}</option>
+                    return <option key={num} value={num}>{num}</option>
                     })}
              </select>
              </div>
@@ -103,7 +103,9 @@ function Dashboard(props) {
                     return <RoomsCard key={room.id} room={room}/>
                 })}
                 </div>
+                <div className="p-3 my-3 bg-light">
                 <PaginateBtn paginate={paginate} total_btn={Math.ceil(totalRoom/6)}/>
+                </div>
             </div>
     )
 }

@@ -3,6 +3,17 @@ import swal from "sweetalert"
 import {addToBook, updateAvailablity} from "../../Redux/Action"
 import {connect} from "react-redux"
 
+function idGenerate(){
+    let chars = "ABCDEFGHIJKLMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    let nums="1234567890"
+    let level1 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
+    let level2 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
+    let level3 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
+    let level4 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
+    let myId = level1+level2+level3+level4
+    return myId
+}
+
 
 function BookingConfirm(props) {
     const roomsData = JSON.parse(localStorage.getItem("rooms"))
@@ -43,7 +54,7 @@ function BookingConfirm(props) {
               })
               .then((willDelete) => {
                 if (willDelete) {
-                  const booked = {...room, from:from, to:to}
+                  const booked = {...room, from:from, to:to, id:idGenerate()}
                   props.addToBook(booked)
                   props.updateAvailablity(room.id)
                   props.updateAvailablity(room.id)

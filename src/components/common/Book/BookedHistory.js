@@ -13,8 +13,9 @@ function BookedHistory(props) {
     else{
         return (
             <table className="table">
-           <thead className="bg-light">
+           <thead className="bg-danger my-1 text-white">
             <tr>
+                <td>Booking Id</td>
                 <td>Meeting Room</td>
                 <td>Price</td>
                 <td>Floor</td>
@@ -25,6 +26,7 @@ function BookedHistory(props) {
         <tbody>
             {booked.map(room=>{
                 return <tr>
+                    <td>{room.id}</td>
                     <td>{room.room_name}</td>
                     <td>{room.price}</td>
                     <td>{room.floor_num}</td>
