@@ -1,0 +1,4 @@
+.hover-me:hover {
+    border: 1px solid orange;
+    cursor: pointer;
+}

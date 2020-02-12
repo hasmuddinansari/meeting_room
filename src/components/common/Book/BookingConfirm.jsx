@@ -35,20 +35,33 @@ function BookingConfirm(props) {
             swal("Select 'from' and 'to' date both", "","warning")
         }
         else{
-          const booked = {...room, from:from, to:to}
-
-          //booking done by redux axion
-          props.addToBook(booked)
-          props.updateAvailablity(room.id)
-        swal("Booking Completed", "","success")
-        props.history.push(`/meetingRooms/${room.id}/confirm?id=${room.id}`)
+            swal({
+                title: "Are you sure?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  const booked = {...room, from:from, to:to}
+                  props.addToBook(booked)
+                  props.updateAvailablity(room.id)
+                  props.updateAvailablity(room.id)
+                  swal("Meeting room is booked now", {
+                    icon: "success",
+                  });
+                  props.history.push(`/meetingRooms/${room.id}/confirm?id=${room.id}`)
+                } else {
+                  swal("Cancelled !");
+                }
+              });
         }
 
     }
     return (
         <div className="container  row justify-content-center text-left">
             
-            <div className="col-6">
+            <div className="col-lg-6 col-12">
             <h3>Booking Confirmation</h3>
                 <div className="card">
                     <div className="card-body">
