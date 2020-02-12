@@ -68,10 +68,13 @@ function BookingConfirm(props) {
 
     }
     return (
-        <div className="container  row justify-content-center text-left">
-            
-            <div className="col-lg-6 col-12">
-            <h3>Booking Confirmation</h3>
+        <div className="container text-left p-4">
+            <div className="row justify-content-center">
+            <div className="col-lg-5 col-md-5 col-12 m-1">
+                <img src={room.img} alt="img" className="img-fluid img-resize"/>
+            </div>
+            <div className="col-lg-5 col-md-5 m-1 col-12 confirm-shadow">
+            <h3 className="my-1 bg-light text-danger">Booking Confirmation</h3>
                 <div className="card">
                     <div className="card-body">
                        <p>Meeting Room's Name : {room.room_name}</p> 
@@ -82,7 +85,7 @@ function BookingConfirm(props) {
                         {room.available?<button onClick={booking} className="btn btn-outline-success my-3">Confirm To Book</button>:<button className="my-3" disabled>Not Available</button>}
                     </div>
                 </div>
-
+                </div>
             </div>
            
         </div>

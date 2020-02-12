@@ -60,7 +60,7 @@ export const roomsReducer = (state=initialState, action)=>{
 
 const initialStateOfAuth = {
     Auth:{
-        authenticated:false,
+        authenticated:true,
         token:"",
     }
 }
