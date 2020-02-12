@@ -6,12 +6,11 @@ import {connect} from "react-redux"
 function idGenerate(){
     let chars = "ABCDEFGHIJKLMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     let nums="1234567890"
-    let level1 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
-    let level2 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
-    let level3 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
-    let level4 = chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
-    let myId = level1+level2+level3+level4
-    return myId
+    let ids = ""
+    for(let i=0; i<=5; i++){
+        ids += chars[Math.floor(Math.random() * chars.length)]+nums[Math.floor(Math.random() * nums.length)]
+    }
+    return ids
 }
 
 
@@ -26,7 +25,6 @@ function BookingConfirm(props) {
 
     const [from, setFrom] = useState("")
     const [to, setTo] = useState("")
-
     //date picker 
     function handleChange(e){
         if(e.target.name=='from'){

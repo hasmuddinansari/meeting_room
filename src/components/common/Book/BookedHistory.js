@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from "react-redux"
 
 
+
 function BookedHistory(props) {
     const booked = JSON.parse(localStorage.getItem("orders"))
     console.log("booked", booked)
@@ -21,6 +22,7 @@ function BookedHistory(props) {
                 <td>Floor</td>
                 <td>From</td>
                 <td>To</td>
+                <td>Delete</td>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +34,9 @@ function BookedHistory(props) {
                     <td>{room.floor_num}</td>
                     <td>{room.from}</td>
                     <td>{room.to}</td>
+                    <td><button onClick={()=>{
+                        return props.delete_bill(room.id)
+                    }} className="btn btn-danger">X</button></td>
                 </tr>
             })}
         </tbody>
@@ -44,4 +49,5 @@ const mapStateToProps=state=>{
         booked:state.Booked.booked
     }
 }
+
 export default connect(mapStateToProps)(BookedHistory)
